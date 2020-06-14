@@ -17,11 +17,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Router>
         <header className="App-header">
           <h1 className="App-title">Feedback!</h1>
           <h4><i>Don't forget it!</i></h4>
+          <Link to = '/FeelingFeedback'>Click here to go to the FeelingFeedback</Link>
         </header>
-        <Router>
+        
           <Route path = '/FeelingFeedback' component = {FeelingFeedback}/>
           <Route path='/SupportFeedback' component={SupportFeedback} />
           <Route path='/UnderstandingFeedback' component={UnderstandingFeedback} />

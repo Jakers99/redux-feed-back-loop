@@ -9,7 +9,7 @@ class FeelingFeedback extends Component{
         }
     }
     handleChange = (event) => {
-        console.log('this is target', event.target);
+        console.log('this is target', event.target.id);
         console.log('this is the feeling', this.state.value.feeling);
         this.setState({
             value: {
@@ -19,11 +19,22 @@ class FeelingFeedback extends Component{
             }
         })
     }
+    handleSubmit = (event) => {
+        event.preventDefault();
+        let feelingValue = this.state.value;
+        console.log('this is how the student is feeling today', feelingValue);
+        this.props.dispatch({
+            type: 'GET_INPUT',
+            payload: feelingValue
+        })
+        this.props.history.push('/SupportFeedback')
+    }
     render(){
         return(
             <section>
                 <label for='feelingInput'>one of five</label>
-                <input onChange = {this.handleChange}id='feelingInput' type = 'number'/>
+                <input onChange = {this.handleChange} id='feelingInput' type = 'number'/>
+                <button onClick = {this.handleSubmit} id='nextButton'>NEXT</button>
             </section>
         )
     }
