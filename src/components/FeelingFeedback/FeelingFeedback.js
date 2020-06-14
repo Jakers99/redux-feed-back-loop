@@ -4,16 +4,16 @@ import { Component } from 'react';
 
 class FeelingFeedback extends Component{
     state = {
-        value: {
+        studentInfo: {
             feeling: ''
         }
     }
     handleChange = (event) => {
-        console.log('this is target', event.target.id);
-        console.log('this is the feeling', this.state.value.feeling);
+        console.log('this is target', event.target);
+        console.log('this is the feeling', this.state.studentInfo.feeling);
         this.setState({
             value: {
-                ...this.state.value,
+                ...this.state.studentInfo,
                 [event.target.feeling]: event.target.value
                 
             }
@@ -33,7 +33,7 @@ class FeelingFeedback extends Component{
         return(
             <section>
                 <label for='feelingInput'>one of five</label>
-                <input onChange = {this.handleChange} id='feelingInput' type = 'number'/>
+                <input onChange = {this.handleChange} id='feelingInput' type = 'number' value={this.state.studentInfo.feeling} name='feeling'/>
                 <button onClick = {this.handleSubmit} id='nextButton'>NEXT</button>
             </section>
         )
