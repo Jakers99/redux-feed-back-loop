@@ -1,11 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Component } from 'react';
+import Axios from 'axios';
 
 class Review extends Component{
     reviewButton = () => {
         console.log('inside reviewButton');
         console.log('inside feelingReducer', this.props.reduxStore.inputReducer);
+        Axios({
+            method: 'POST',
+            url: '/submit',
+            data: this.props.reduxStore.inputReducer
+        })
     }
     render(){
         return(
