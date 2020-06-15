@@ -10,7 +10,9 @@ app.use(express.static('build'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
 const feedbackRouter = require('./routes/feedback.router.js');
+const postRouter = require('./routes/post.router')
 app.use('/api/feedback', feedbackRouter);
+app.post('/submit', postRouter)
 
 /** ---------- START SERVER ---------- **/
 app.listen(PORT, () => {

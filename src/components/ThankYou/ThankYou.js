@@ -1,27 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Component } from 'react';
-import Axios from 'axios';
 
-class Review extends Component{
-    reviewButton = (event) => {
-        console.log('inside reviewButton');
-        console.log('inside feelingReducer', this.props.reduxStore.inputReducer);
-        event.preventDefault();
-        Axios({
-            method: 'POST',
-            url: '/submit',
-            data: this.props.reduxStore.inputReducer
-        })
-        window.location.reload(false);
-    }
-    continueButton = () => {
-        this.props.history.push('/ThankYou')
+class ThankYou extends Component{
+    startAgain = () => {
+        this.props.history.push('/FeelingFeedback')
     }
     render(){
         return(
-        <div>
             <section>
+            <h1>THANK YOU!!</h1>
+            <h2>Your submissions:</h2>
                 <table>
                     <thead>
                         <tr>
@@ -32,7 +21,7 @@ class Review extends Component{
                         </tr>
                     </thead>
                     <thead>
-                        {this.props.reduxStore.feedbackReducer.map((info) => 
+                        {this.props.reduxStore.feedbackReducer.map((info) =>
                             <tr key={info.id}>
                                 <td>{info.feeling}</td>
                                 <td>{info.understanding}</td>
@@ -42,14 +31,12 @@ class Review extends Component{
                         )}
                     </thead>
                 </table>
+                <button onClick = {this.startAgain}>Click here to make a new submission!</button>
             </section>
-                <button id="review" onClick={this.reviewButton} >Click to Submit</button>
-                <button id='done' onClick={this.continueButton}>Click to go to the next page</button>
-        </div>
-        )
+        );
     }
 }
 
 const mapStateToProps = (reduxStore) => ({ reduxStore })
 
-export default connect(mapStateToProps)(Review);
+export default connect(mapStateToProps)(ThankYou);

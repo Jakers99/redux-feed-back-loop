@@ -8,6 +8,7 @@ import SupportFeedback from '../SupportFeedback/SupportFeedback'
 import UnderstandingFeedback from '../UnderstandingFeedback/UnderstandingFeedback'
 import Comments from '../Comments/Comments'
 import Review from '../Review/Review'
+import ThankYou from '../ThankYou/ThankYou'
 class App extends Component {
   
   componentDidMount(){
@@ -49,6 +50,7 @@ class App extends Component {
           <Route path='/UnderstandingFeedback' component={UnderstandingFeedback} />
           <Route path='/Comments' component={Comments} />
           <Route path = '/Review' component={Review} />
+          <Route path = '/ThankYou' component = {ThankYou} />
         </Router>
        
         
