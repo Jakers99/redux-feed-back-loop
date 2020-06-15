@@ -9,6 +9,7 @@ class ThankYou extends Component{
     render(){
         return(
             <section>
+                {/* this section displays all of the information once again */}
             <h1>THANK YOU!!</h1>
             <h2>Your submissions:</h2>
                 <table>
@@ -22,6 +23,7 @@ class ThankYou extends Component{
                     </thead>
                     <thead>
                         {this.props.reduxStore.feedbackReducer.map((info) =>
+                        // displays all the submissions once again on the thank you page
                             <tr key={info.id}>
                                 <td>{info.feeling}</td>
                                 <td>{info.understanding}</td>

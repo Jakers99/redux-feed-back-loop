@@ -3,12 +3,13 @@ import { connect } from 'react-redux';
 import { Component } from 'react';
 
 class UnderstandingFeedback extends Component {
+    //state for the understanding input
     state = {
         studentInfo: {
             understanding: ''
         }
     }
-
+//when the input is submitted, it changes the value of this.state.studentInfo.understanding 
     handleChange = (event) => {
         console.log('this is target', event.target);
         console.log('this is the support', this.state.studentInfo.understanding);
@@ -20,6 +21,7 @@ class UnderstandingFeedback extends Component {
             }
         })
     }
+    //brings all the information to index.js in inputReducer
     handleSubmit = (event) => {
         event.preventDefault();
         let understandingValue = this.state.value;
@@ -28,6 +30,7 @@ class UnderstandingFeedback extends Component {
             type: 'GET_INPUT',
             payload: understandingValue
         })
+        //when the next button is clicked, it goes to the comments page
         this.props.history.push('/Comments')
     }
     render() {

@@ -4,6 +4,7 @@ import { Component } from 'react';
 import Axios from 'axios';
 
 class Review extends Component{
+    //posts the information inputs to the dom and refreshes the page
     reviewButton = (event) => {
         console.log('inside reviewButton');
         console.log('inside feelingReducer', this.props.reduxStore.inputReducer);
@@ -15,6 +16,7 @@ class Review extends Component{
         })
         window.location.reload(false);
     }
+    //button to go to the thankyou page
     continueButton = () => {
         this.props.history.push('/ThankYou')
     }
@@ -32,6 +34,7 @@ class Review extends Component{
                         </tr>
                     </thead>
                     <thead>
+                        {/* shows the recent submissions */}
                         {this.props.reduxStore.feedbackReducer.map((info) => 
                             <tr key={info.id}>
                                 <td>{info.feeling}</td>
@@ -43,6 +46,7 @@ class Review extends Component{
                     </thead>
                 </table>
             </section>
+            <label for = 'review'>Click here first to submit, then go to the next page! </label>
                 <button id="review" onClick={this.reviewButton} >Click to Submit</button>
                 <button id='done' onClick={this.continueButton}>Click to go to the next page</button>
         </div>

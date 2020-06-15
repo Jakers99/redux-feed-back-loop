@@ -8,7 +8,7 @@ class SupportFeedback extends Component {
             support: ''
         }
     }
-
+//changes the support in state
     handleChange = (event) => {
         console.log('this is target', event.target);
         console.log('this is the support', this.state.studentInfo.support);
@@ -20,6 +20,7 @@ class SupportFeedback extends Component {
             }
         })
     }
+    //brings all the information to index.js in inputReducer
     handleSubmit = (event) => {
         event.preventDefault();
         let supportValue = this.state.value;

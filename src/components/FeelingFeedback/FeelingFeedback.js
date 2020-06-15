@@ -8,6 +8,7 @@ class FeelingFeedback extends Component{
             feeling: ''
         }
     }
+    //changes the state
     handleChange = (event) => {
         console.log('this is target', event.target);
         console.log('this is the feeling', this.state.studentInfo.feeling);
@@ -19,6 +20,7 @@ class FeelingFeedback extends Component{
             }
         })
     }
+    //brings all the information to index.js in inputReducer
     handleSubmit = (event) => {
         event.preventDefault();
         let feelingValue = this.state.value;

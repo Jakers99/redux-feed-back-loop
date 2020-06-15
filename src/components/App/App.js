@@ -14,7 +14,7 @@ class App extends Component {
   componentDidMount(){
     this.getFeedback();
   }
-
+//gets the information for review.js
   getFeedback = () => {
     axios({
       method: 'GET',
@@ -29,7 +29,7 @@ class App extends Component {
       console.log("Feedback GET Error:", error)
     })
   }
-
+//when clicked, it goes to the FeelingFeedback page
  handleSubmit = () => {
    console.log('next button clicked');
    this.props.history.push('/FeelingFeedback')
@@ -44,6 +44,7 @@ class App extends Component {
           <h4><i>Don't forget it!</i></h4>
           
         </header>
+        {/* all the links to the different components */}
           <Link to='/FeelingFeedback'>Click here to go to the FeelingFeedback</Link>
           <Route path = '/FeelingFeedback' component = {FeelingFeedback}/>
           <Route path='/SupportFeedback' component={SupportFeedback} />

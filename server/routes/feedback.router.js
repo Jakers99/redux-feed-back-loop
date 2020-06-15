@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
-
+//calls the GET request from app.js
 router.get('/', (req, res) => {
     console.log('GET /api/feedback');
     pool.query('SELECT * from "feedback";').then((result) => {
@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
         res.sendStatus(500);
     });
 })
-
+//calls the post request from review.js
 router.post('/submit', (req, res) => {
     const feedback = req.body;
     pool.query(`

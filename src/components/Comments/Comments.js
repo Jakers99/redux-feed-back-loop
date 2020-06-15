@@ -8,7 +8,7 @@ class CommentFeedback extends Component {
             comment: ''
         }
     }
-
+//when the input is used, it changes the comment value in the state
     handleChange = (event) => {
         console.log('this is target', event.target);
         console.log('this is the comment', this.state.studentInfo.comment);
@@ -20,6 +20,7 @@ class CommentFeedback extends Component {
             }
         })
     }
+    //brings all the information to index.js in inputReducer
     handleSubmit = (event) => {
         event.preventDefault();
         let commentValue = this.state.value;
