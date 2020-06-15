@@ -14,7 +14,7 @@ class FeelingFeedback extends Component{
         this.setState({
             value: {
                 ...this.state.studentInfo,
-                [event.target.feeling]: event.target.value
+                feeling: event.target.value
                 
             }
         })
@@ -31,10 +31,15 @@ class FeelingFeedback extends Component{
     }
     render(){
         return(
+            
             <section>
-                <label for='feelingInput'>one of five</label>
-                <input onChange = {this.handleChange} id='feelingInput' type = 'number' value={this.state.studentInfo.feeling} name='feeling'/>
+                <form>
+                    <p>On a scale of one to five, how are you feeling today?</p>
+                <label for='feelingInput'>Feeling? </label>
+                <input onChange = {this.handleChange} id='feelingInput' type = 'number' value={this.state.feeling} name='feeling'/>
                 <button onClick = {this.handleSubmit} id='nextButton'>NEXT</button>
+                </form>
+                <pre>{JSON.stringify(this.props.reduxState)}</pre>
             </section>
         )
     }
